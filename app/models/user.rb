@@ -31,13 +31,16 @@ class User < ActiveRecord::Base
   end
 
   
-
+    # check if user is admin
   def admin?
-    admin_users = ["bjustice@uvic.ca",
-                "test123@uvic.ca",
-                "test@uvic.ca"
-              ]
-
+    # first we pull all users from the Role db
+    admin_users = []
+    r = Role.find_by name: "admin"
+    # then we extract the emails
+    r.users.each do |user|
+      admin_users << user['email']
+    end
+    # finally we compare with the current user
     if admin_users.include? email
       return true
     else
