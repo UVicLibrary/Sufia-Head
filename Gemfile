@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 gem 'sufia', '6.3.0'
 gem 'kaminari', github: 'jcoyne/kaminari', branch: 'sufia'
-gem "hydra-role-management" 
+gem "hydra-role-management"
+gem 'resque-ffmpeg', github: "joker1007/resque-ffmpeg"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'

@@ -7,6 +7,13 @@ GIT
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
 
+GIT
+  remote: git://github.com/joker1007/resque-ffmpeg.git
+  revision: 384bcaf8be26dba207e5a46b7a811a17f70f501a
+  specs:
+    resque-ffmpeg (0.0.1)
+      resque
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -620,6 +627,7 @@ DEPENDENCIES
   jquery-rails
   kaminari!
   rails (= 4.2.4)
+  resque-ffmpeg!
   rsolr (~> 1.0.6)
   rspec-rails
   sass-rails (~> 5.0)

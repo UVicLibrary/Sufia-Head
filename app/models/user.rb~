@@ -30,14 +30,12 @@ class User < ActiveRecord::Base
     email
   end
 
-  
-
-  def admin?
-    admin_users = ["bjustice@uvic.ca",
+  admin_users = ["bjustice@uvic.ca",
                 "test123@uvic.ca",
                 "test@uvic.ca"
               ]
 
+  def admin?
     if admin_users.include? email
       return true
     else
