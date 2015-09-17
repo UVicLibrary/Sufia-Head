@@ -16,5 +16,5 @@
 !/log/.keep
 /tmp
 
-#Ignore Jetty
+# Ignore jetty directory
 /jetty

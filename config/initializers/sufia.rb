@@ -1,4 +1,16 @@
 Sufia.config do |config|
+  config.enable_contact_form_delivery = true
+  config.contact_form_delivery_body = <<-EOM
+	Thank you for contacting UVic with your question or issue about our Sufia instance.
+	
+	Sincerely,
+
+	The UVic Sufia Team
+  EOM
+  config.contact_form_delivery_from = 'bjustice@uvic.ca'
+  config.contact_email = 'bjustice@uvic.ca'
+  config.from_email = 'bjustice@uvic.ca'
+
   config.fits_to_desc_mapping = {
     file_title: :title,
     file_author: :creator
@@ -98,8 +110,7 @@ Sufia.config do |config|
   # config.persistent_hostpath = 'http://localhost/files/'
 
   # If you have ffmpeg installed and want to transcode audio and video uncomment this line
- config.enable_ffmpeg = true
- config.ffmpeg_path = "/home/bjustice/bin"
+  config.enable_ffmpeg = true
 
   # Sufia uses NOIDs for files and collections instead of Fedora UUIDs
   # where NOID = 10-character string and UUID = 32-character string w/ hyphens
@@ -119,7 +130,7 @@ Sufia.config do |config|
   # config.redis_namespace = "sufia"
 
   # Specify the path to the file characterization tool:
-config.fits_path = "/home/bjustice/Sufia/fits-0.6.2/fits.sh"
+  config.fits_path = "/home/hydra/fits/fits-0.6.2/fits.sh"
 
   # Specify how many seconds back from the current time that we should show by default of the user's activity on the user's dashboard
   # config.activity_to_show_default_seconds_since_now = 24*60*60

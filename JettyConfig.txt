@@ -1,0 +1,39 @@
+/var/lib/gems/2.2.0/gems/sufia-models-6.3.0/lib/tasks/sufia-models_tasks.rake:39: warning: already initialized constant FULLTEXT_JARS
+/var/lib/gems/2.2.0/gems/sufia-models-6.3.0/lib/tasks/sufia-models_tasks.rake:39: warning: previous definition of FULLTEXT_JARS was here
+Downloading full-text jars from maven.org ...
+Fetching /remotecontent?filepath=org/apache/james/apache-mime4j-core/0.7.2/apache-mime4j-core-0.7.2.jar
+Fetching /remotecontent?filepath=org/apache/james/apache-mime4j-dom/0.7.2/apache-mime4j-dom-0.7.2.jar
+Fetching /remotecontent?filepath=org/apache/solr/solr-cell/4.0.0/solr-cell-4.0.0.jar
+Fetching /remotecontent?filepath=org/bouncycastle/bcmail-jdk15/1.45/bcmail-jdk15-1.45.jar
+Fetching /remotecontent?filepath=org/bouncycastle/bcprov-jdk15/1.45/bcprov-jdk15-1.45.jar
+Fetching /remotecontent?filepath=de/l3s/boilerpipe/boilerpipe/1.1.0/boilerpipe-1.1.0.jar
+Fetching /remotecontent?filepath=org/apache/commons/commons-compress/1.4.1/commons-compress-1.4.1.jar
+Fetching /remotecontent?filepath=dom4j/dom4j/1.6.1/dom4j-1.6.1.jar
+Fetching /remotecontent?filepath=org/apache/pdfbox/fontbox/1.7.0/fontbox-1.7.0.jar
+Fetching /remotecontent?filepath=com/ibm/icu/icu4j/49.1/icu4j-49.1.jar
+Fetching /remotecontent?filepath=com/googlecode/mp4parser/isoparser/1.0-RC-1/isoparser-1.0-RC-1.jar
+Fetching /remotecontent?filepath=jdom/jdom/1.0/jdom-1.0.jar
+Fetching /remotecontent?filepath=org/apache/pdfbox/jempbox/1.7.0/jempbox-1.7.0.jar
+Fetching /remotecontent?filepath=com/googlecode/juniversalchardet/juniversalchardet/1.0.3/juniversalchardet-1.0.3.jar
+Fetching /remotecontent?filepath=com/drewnoakes/metadata-extractor/2.4.0-beta-1/metadata-extractor-2.4.0-beta-1.jar
+Fetching /remotecontent?filepath=edu/ucar/netcdf/4.2-min/netcdf-4.2-min.jar
+Fetching /remotecontent?filepath=org/apache/pdfbox/pdfbox/1.7.0/pdfbox-1.7.0.jar
+Fetching /remotecontent?filepath=org/apache/poi/poi/3.8/poi-3.8.jar
+Fetching /remotecontent?filepath=org/apache/poi/poi-ooxml/3.8/poi-ooxml-3.8.jar
+Fetching /remotecontent?filepath=org/apache/poi/poi-ooxml-schemas/3.8/poi-ooxml-schemas-3.8.jar
+Fetching /remotecontent?filepath=org/apache/poi/poi-scratchpad/3.8/poi-scratchpad-3.8.jar
+Fetching /remotecontent?filepath=rome/rome/0.9/rome-0.9.jar
+Fetching /remotecontent?filepath=org/ccil/cowan/tagsoup/tagsoup/1.2.1/tagsoup-1.2.1.jar
+Fetching /remotecontent?filepath=org/apache/tika/tika-core/1.2/tika-core-1.2.jar
+Fetching /remotecontent?filepath=org/apache/tika/tika-parsers/1.2/tika-parsers-1.2.jar
+Fetching /remotecontent?filepath=org/gagravarr/vorbis-java-core/0.1/vorbis-java-core-0.1.jar
+Fetching /remotecontent?filepath=org/gagravarr/vorbis-java-tika/0.1/vorbis-java-tika-0.1.jar
+Fetching /remotecontent?filepath=xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar
+Fetching /remotecontent?filepath=org/apache/xmlbeans/xmlbeans/2.3.0/xmlbeans-2.3.0.jar
+Fetching /remotecontent?filepath=org/tukaani/xz/1.0/xz-1.0.jar
+Fetching /remotecontent?filepath=org/aspectj/aspectjrt/1.8.5/aspectjrt-1.8.5.jar
+Downloading full-text jars from maven.org ...
+cp solr_conf/conf/schema.xml jetty/solr/development-core/conf/
+cp solr_conf/conf/schema.xml jetty/solr/test-core/conf/
+cp solr_conf/conf/solrconfig.xml jetty/solr/development-core/conf/
+cp solr_conf/conf/solrconfig.xml jetty/solr/test-core/conf/

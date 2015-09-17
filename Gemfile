@@ -9,6 +9,9 @@ gem 'resque-ffmpeg', github: "joker1007/resque-ffmpeg"
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+# Or mysql
+# gem 'mysql'
+# gem 'activerecord-mysql-adapter'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -57,6 +60,9 @@ gem 'devise-guests', '~> 0.3'
 group :development, :test do
   gem 'rspec-rails'
   gem 'jettywrapper'
+end
+
+group :development, :test do
 end
 
 group :development, :test do
