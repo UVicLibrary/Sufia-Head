@@ -21,6 +21,7 @@ Sufia.config do |config|
   config.max_notifications_for_dashboard = 5
 
   config.cc_licenses = {
+    'Contact UVic Archives for access to the original resource and for reproduction requests (fee for reproductions). This material is made available on this site for research and private study only.' => 'http://www.uvic.ca/library/locations/home/archives/archival_resources/collections_policy.php',
     'Attribution 3.0 United States' => 'http://creativecommons.org/licenses/by/3.0/us/',
     'Attribution-ShareAlike 3.0 United States' => 'http://creativecommons.org/licenses/by-sa/3.0/us/',
     'Attribution-NonCommercial 3.0 United States' => 'http://creativecommons.org/licenses/by-nc/3.0/us/',
