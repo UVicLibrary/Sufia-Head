@@ -9,6 +9,8 @@ module Sufia
     extend ActiveSupport::Concern
     extend Sufia::FilesController::UploadCompleteBehavior
     include Sufia::Breadcrumbs
+    require 'rubygems'
+    require 'tesseract'
 
     included do
       include Hydra::Controller::ControllerBehavior
@@ -225,7 +227,25 @@ module Sufia
       def process_file(file)
         Batch.find_or_create(params[:batch_id])
 
-        update_metadata_from_upload_screen
+	begin
+          #e = Tesseract::Engine.new do |config|
+          #  config.language  = :eng
+          #  config.blacklist = '|'
+          #end 
+
+	  text = file.tempfile.inspect
+	  text = text.to_s.sub("#<Tempfile:", "")
+	  text = text.sub(">", "")	  
+
+	  image = RTesseract.new(text)
+	  
+          text = image.to_s #"123"#e.text_for(file).strip
+	rescue
+	  
+	  flash[:error] = "IT FAILED"
+ 	end
+
+        update_metadata_from_upload_screen(text)
         actor.create_metadata(params[:batch_id])
         if actor.create_content(file, file.original_filename, file_path, file.content_type)
           respond_to do |format|
@@ -263,11 +283,17 @@ module Sufia
 
       # this is provided so that implementing application can override this behavior and map params to different attributes
       # called when creating or updating metadata
-      def update_metadata_from_upload_screen
+      def update_metadata_from_upload_screen(fileText)
         # Relative path is set by the jquery uploader when uploading a directory
+	#e = Tesseract::Engine.new {|e|
+        #  e.language  = :eng
+        #  e.blacklist = '|'
+        #}        
+        #e.text_for(params[:filedata]).strip
         @generic_file.relative_path = params[:relative_path] if params[:relative_path]
         @generic_file.on_behalf_of = params[:on_behalf_of] if params[:on_behalf_of]
-	@generic_file.tag << params[:metadataInput] if params[:metadataInput]
+	@generic_file.abstract << params[:metadataInput] if params[:metadataInput]
+        @generic_file.education_level << fileText
       end
   end
 end
