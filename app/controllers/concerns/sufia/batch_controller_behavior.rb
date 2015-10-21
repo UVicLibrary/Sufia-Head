@@ -40,23 +40,22 @@ module Sufia
       def edit_form
         generic_file = ::GenericFile.new(creator: [current_user.name], title: @batch.generic_files.map(&:label))
 
-	jsonString = @batch.generic_files.map(&:abstract).first.first.to_s
-	if (jsonString.size > 5)	
-	  my_json = JSON.parse(jsonString, symbolize_names: true)
-	  generic_file.creator << if my_json[:creato].empty? then "" else my_json[:creato] end
-  	  generic_file.description << if my_json[:descri].empty? then "" else my_json[:descri] end
-  	  generic_file.description << if my_json[:relati].empty? then "" else my_json[:relati] end
-  	  generic_file.description << @batch.generic_files.map(&:education_level)
-	  generic_file.identifier << if my_json[:identi].empty? then "" else my_json[:identi] end
-	  generic_file.language << if my_json[:langua].empty? then "" else my_json[:langua] end
-	  generic_file.subject << if my_json[:subjec].empty? then "" else my_json[:subjec] end
-	  generic_file.date_created << if my_json[:date].empty? then "" else my_json[:date] end
-	  generic_file.contributor << if my_json[:contri].empty? then "" else my_json[:contri] end
-	  generic_file.tag << if my_json[:genre].empty? then "" else my_json[:genre] end
- 	  generic_file.publisher << if my_json[:publis].empty? then "" else my_json[:publis] end
-	  generic_file.rights << if my_json[:rights].empty? then "" else my_json[:rights] end
-	end
-	edit_form_class.new(generic_file)
+		jsonString = @batch.generic_files.map(&:abstract).first.first.to_s
+		if (jsonString.size > 5)	
+		  my_json = JSON.parse(jsonString, symbolize_names: true)
+		  generic_file.creator << if my_json[:creato].empty? then "" else my_json[:creato] end
+		  generic_file.description << if my_json[:descri].empty? then "" else my_json[:descri] end
+		  generic_file.description << if my_json[:relati].empty? then "" else my_json[:relati] end
+		  generic_file.identifier << if my_json[:identi].empty? then "" else my_json[:identi] end
+		  generic_file.language << if my_json[:langua].empty? then "" else my_json[:langua] end
+		  generic_file.subject << if my_json[:subjec].empty? then "" else my_json[:subjec] end
+		  generic_file.date_created << if my_json[:date].empty? then "" else my_json[:date] end
+		  generic_file.contributor << if my_json[:contri].empty? then "" else my_json[:contri] end
+		  generic_file.tag << if my_json[:genre].empty? then "" else my_json[:genre] end
+		  generic_file.publisher << if my_json[:publis].empty? then "" else my_json[:publis] end
+		  generic_file.rights << if my_json[:rights].empty? then "" else my_json[:rights] end
+		end
+		edit_form_class.new(generic_file)
       end
 
       # override this method if you need to initialize more complex RDF assertions (b-nodes)

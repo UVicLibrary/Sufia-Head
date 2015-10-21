@@ -3,7 +3,8 @@
       <%= hidden_field_tag(:relative_path) %>
       <%= hidden_field_tag(:batch_id, @batch_id) %>
       <%= hidden_field_tag "file_coming_from", "local" %>
-      <%= text_area_tag(:metadataInput, nil, placeholder: "Paste metadata xml here") %>
+      <%= text_area_tag(:metadataInput, nil, placeholder: "Paste metadata json here") %>
+      <%= check_box_tag 'perform_OCR' %> Perform OCR. (only available for images)
 	<br>
       <%= render partial: 'generic_files/upload/tos_checkbox' %>
         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
