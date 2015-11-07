@@ -4,8 +4,8 @@ gem 'sufia', '6.3.0'
 gem 'kaminari', github: 'jcoyne/kaminari', branch: 'sufia'
 gem "hydra-role-management"
 gem 'resque-ffmpeg', github: "joker1007/resque-ffmpeg"
-gem 'tesseract-ocr'
-
+gem 'hydra-derivatives', github: "UVicLibrary/hydra-derivatives", :tag => 'v1.1.0'
+gem 'whenever', require: false
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'

@@ -18,3 +18,5 @@
 
 # Ignore jetty directory
 /jetty
+#Ignore Jetbrains project files
+/.idea

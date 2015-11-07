@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     mount Sufia::Engine => '/'
   root to: 'homepage#index'
 
+  get 'pages/:id' => 'pages#show', as: 'show_page'
+  get '/pages/:id/edit' => 'pages#edit', as: 'edit_page'
+  post '/pages/:id/update' => 'pages#update', as: 'update_page'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

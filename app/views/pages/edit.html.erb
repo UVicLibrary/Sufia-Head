@@ -1,0 +1,23 @@
+
+<%= javascript_include_tag 'https://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4ff1d986721ebb24' %>
+
+<%= javascript_tag do %>
+  var addthis_config = {"data_track_addressbar":false};
+  initialize_audio();
+<% end %>
+
+<%= render_breadcrumbs builder: Sufia::BootstrapBreadcrumbsBuilder %>
+<div class="container-fluid">
+		<% @page = Page.find(params[:id]) %>
+		<div id="page_image" style="width: 49%; float: left;">
+			<%= form_tag update_page_path(@page)  do -%>
+				<%= text_area_tag 'OCR_Text', @page.full_text.content, rows:30, cols: 70 %>
+				<br>
+				<%= submit_tag 'Save' %>
+			<% end -%>
+		</div>
+		<div id="page_image" style="width: 49%; float: left;">
+			<%= image_tag "/downloads/"+@page.id+"?file=pageContent", class: "img-responsive", alt: "page" %>
+		</div>
+		
+</div>

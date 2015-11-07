@@ -10,7 +10,6 @@ module Sufia
     extend Sufia::FilesController::UploadCompleteBehavior
     include Sufia::Breadcrumbs
     require 'rubygems'
-    require 'tesseract'
 
     included do
       include Hydra::Controller::ControllerBehavior
@@ -226,29 +225,9 @@ module Sufia
 
       def process_file(file)
         Batch.find_or_create(params[:batch_id])
-
-	begin
-	  
-	  text = file.tempfile.inspect
-	  text = text.to_s.sub("#<Tempfile:", "")
-	  text = text.sub(">", "")	   
-	  base = text.split(".").first || "ERROR!!"
-	  ending = text.split(".").last || text
-	  
-	  ocr = params[:perform_OCR] if params[:perform_OCR]
-	  if (ocr == "1")
-	 #   sysCommand = 'pdftotext ' + text + ' ' + base + '.txt'
-	 #   system(sysCommand)
-	 # else
-	    sysCommand = 'tesseract ' + text + ' ' + base
-	    system(sysCommand)
-	    sleep 0.5
-	  end
-	rescue
-	  flash[:error] = "OCR FAILED"
- 	end
-
-        update_metadata_from_upload_screen(base)
+        byebug
+        update_metadata_from_upload_screen()
+        byebug
         actor.create_metadata(params[:batch_id])
         if actor.create_content(file, file.original_filename, file_path, file.content_type)
           respond_to do |format|
@@ -286,20 +265,12 @@ module Sufia
 
       # this is provided so that implementing application can override this behavior and map params to different attributes
       # called when creating or updating metadata
-      def update_metadata_from_upload_screen(fileText)
+      def update_metadata_from_upload_screen()
         # Relative path is set by the jquery uploader when uploading a directory
-        
-        ocrFile = fileText + '.txt'
-
-        if (File.exist?(ocrFile))
-          text = File.open(ocrFile, "r").read
-          @generic_file.education_level << text
-          File.delete(ocrFile)
-      	end
-        
         @generic_file.relative_path = params[:relative_path] if params[:relative_path]
         @generic_file.on_behalf_of = params[:on_behalf_of] if params[:on_behalf_of]
         @generic_file.abstract << params[:metadataInput] if params[:metadataInput]
+        @generic_file.OCR << params[:perform_OCR] if params[:perform_OCR]
       end
   end
 end
