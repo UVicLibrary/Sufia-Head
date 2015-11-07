@@ -19,10 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.day, :at => '4:17 pm' do
+every 1.day, :at => '12:01 am' do
   runner "Page.newPageCron(nil)", :environment => 'development'
-end
-
-every 1.day, :at => '6:05 pm' do
-  runner "Page.imageCron(nil)", :environment => 'development'
 end

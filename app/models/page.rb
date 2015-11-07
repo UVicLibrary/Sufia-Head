@@ -104,7 +104,8 @@ class Page < ActiveFedora::Base
 				  else
 					  makePage(file, 0, nil, logger)
 				  end
-				  file.OCR = []
+				  file.OCR = ""
+				  file.save
 			  end
 		  else
 		  	  file = GenericFile.find(id)
@@ -114,30 +115,6 @@ class Page < ActiveFedora::Base
 			  else
 				  makePage(file, 0, nil, logger)
 			  end
-		  end
-	  rescue => ex
-	  	  logger ex.to_s
-	  end
-	  
-	  def imageCron(id)
-	  	  logger = Logger.new("/tmp/imageCron.log")
-		  logger.info "starting image cron"
-		  if(id == nil)
-		  	  mime_types = GenericFile.image_mime_types
-		  	  mime_types.each do |mime|
-				  files = GenericFile.where mime_type: mime
-				  logger.info "got image files"
-				  files.each do |file|
-					  if (file.id =="9z902z86w")
-						  next
-					  end
-					  logger "File id: "+file.id
-					  makePage(file, 0, nil, logger)
-				  end
-			  end
-		  else
-		  	  logger "File id: "+id
-		  	  makePage(GenericFile.find(id), 0, nil, logger)
 		  end
 	  rescue => ex
 	  	  logger ex.to_s

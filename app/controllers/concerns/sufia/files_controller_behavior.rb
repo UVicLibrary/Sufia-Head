@@ -225,9 +225,7 @@ module Sufia
 
       def process_file(file)
         Batch.find_or_create(params[:batch_id])
-        byebug
         update_metadata_from_upload_screen()
-        byebug
         actor.create_metadata(params[:batch_id])
         if actor.create_content(file, file.original_filename, file_path, file.content_type)
           respond_to do |format|
@@ -270,7 +268,7 @@ module Sufia
         @generic_file.relative_path = params[:relative_path] if params[:relative_path]
         @generic_file.on_behalf_of = params[:on_behalf_of] if params[:on_behalf_of]
         @generic_file.abstract << params[:metadataInput] if params[:metadataInput]
-        @generic_file.OCR << params[:perform_OCR] if params[:perform_OCR]
+        @generic_file.OCR = params[:perform_OCR] if params[:perform_OCR]
       end
   end
 end

@@ -11,7 +11,7 @@ class GenericFile < ActiveFedora::Base
       index.as :stored_searchable, :facetable
     end
 
-    property :OCR, predicate: ::RDF::Value do |index|
+    property :OCR, predicate: ::RDF::Value, multiple: false do |index|
       index.as :stored_searchable, :facetable
     end
 end
