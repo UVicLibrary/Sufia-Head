@@ -13,7 +13,7 @@ var max_file_size = 20000000000;
 var max_file_size_str = "20 GB";
 //500 MB max total upload size
 var max_total_file_size = 20000000000;
-var max_file_count = 100;
+var max_file_count = 500;
 var max_total_file_size_str = "20 GB";
 var first_file_after_max = ''; 
 var filestoupload =0;      
