@@ -1,0 +1,71 @@
+{
+  "@context":"http://iiif.io/api/presentation/2/context.json",
+  "@id":"http://cassilda.library.uvic.ca/assets/manifest.json",
+  "@type":"sc:Manifest",
+  "label": "Worlds Test",
+  "metadata": [
+    {"label":"Author", "value":"Anne Author"},
+    {"label":"Published", "value": [
+        {"@value": "Paris, circa 1400", "@language":"en"},
+        {"@value": "Paris, environ 1400", "@language":"fr"}
+      ]
+    },
+    {"label":"Source", 
+     "value": "<span>From: <a href=\"http://cassilda.library.uvic.ca/collections/3n203z105\">Two Worlds Collection</a></span>"}
+  ],
+  "description":"A longer description of this example book. It should give some real information.",
+  "thumbnail": {
+    "@id": "http://cassilda.library.uvic.ca/image-service/3f462541v/full/80,100/0/default.jpg",
+    "service": {
+      "@context":"http://iiif.io/api/image/2/context.json",
+      "@id":"http://cassilda.library.uvic.ca/image-service/3f462541v",
+      "profile":"http://iiif.io/api/image/2/level1.json"
+    }
+  },
+  "viewingDirection": "right-to-left",
+  "viewingHint": "paged",
+  "license":"http://cassilda.library.uvic.ca/catalog?rights=%22http%3A%2F%2Fwww.uvic.ca%2Flibrary%2Flocations%2Fhome%2Farchives%2Farchival_resources%2Fcollections_policy.php%22&search_field=advanced",
+  "attribution":"Provided by Example Organization",
+  "logo": "http://cassilda.library.uvic.ca/assets/logo.png",
+  "sequences" : [
+      {
+        "@id":"http://cassilda.library.uvic.ca/assets/sequence.json",
+		"@type":"sc:Sequence",
+		"label":"Current Page Order",
+
+		"viewingDirection":"left-to-right",
+		"viewingHint":"paged",
+		"startCanvas": "http://cassilda.library.uvic.ca/assets/canvas1.json",
+		"canvases": [
+			{
+			  "@id":"http://cassilda.library.uvic.ca/assets/canvas1.json",
+			  "@type":"sc:Canvas",
+			  "label":"p. 1",
+			  "height":3950,
+			  "width":2555,
+
+			  "images": [
+				{
+				  "@id":"http://cassilda.library.uvic.ca/image-service/3f462541v/full/full/0/default.jpg",
+				  "@type":"oa:Annotation",
+				  "motivation":"sc:painting",
+				  "resource": {
+					"@id":"http://cassilda.library.uvic.ca/image-service/3f462541v/full/full/0/default.jpg",
+					"@type":"dctypes:Image",
+					"format":"image/jpeg",
+					"service": {
+					  "@context": "http://iiif.io/api/image/2/context.json",
+					  "@id":"http://cassilda.library.uvic.ca/image-service/3f462541v",
+					  "profile":"http://iiif.io/api/image/2/profiles/level2.json"
+					},
+					"height":3950,
+					"width":2555
+				  },
+				  "on":"http://cassilda.library.uvic.ca/assets/canvas1.json"
+				}
+			  ]
+			}
+		]
+	  }
+	]
+}

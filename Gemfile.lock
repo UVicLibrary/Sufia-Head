@@ -92,7 +92,7 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    blacklight (5.16.3)
+    blacklight (5.16.4)
       bootstrap-sass (~> 3.2)
       deprecation
       kaminari (>= 0.15)
@@ -132,7 +132,7 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
-    childprocess (0.5.7)
+    childprocess (0.5.8)
       ffi (~> 1.0, >= 1.0.11)
     chronic (0.10.2)
     coffee-rails (4.1.0)
@@ -186,9 +186,8 @@ GEM
       multi_json (~> 1.10)
       retriable (~> 1.4)
       signet (~> 0.6)
-    google_drive (1.0.2)
+    google_drive (1.0.4)
       google-api-client (>= 0.7.0, < 0.9)
-      minitest (>= 5.1.0)
       nokogiri (>= 1.4.4, != 1.5.2, != 1.5.1)
       oauth (>= 0.3.6)
       oauth2 (>= 0.5.0)
@@ -210,12 +209,12 @@ GEM
     httparty (0.13.7)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
-    hydra-access-controls (9.4.1)
+    hydra-access-controls (9.5.0)
       active-fedora (~> 9.0)
       activesupport (~> 4.0)
-      blacklight (~> 5.10)
+      blacklight (~> 5.16)
       cancancan (~> 1.8)
-      deprecation (~> 0.1)
+      deprecation (~> 0.2)
       sass-rails
     hydra-batch-edit (1.1.1)
       blacklight
@@ -224,9 +223,9 @@ GEM
       blacklight (~> 5.10)
       deprecation (~> 0.1)
       hydra-head (~> 9.1)
-    hydra-core (9.4.1)
+    hydra-core (9.5.0)
       active-fedora (~> 9.1)
-      hydra-access-controls (= 9.4.1)
+      hydra-access-controls (= 9.5.0)
       jettywrapper (>= 2.0.0)
       rails (~> 4.0)
     hydra-derivatives (1.1.0)
@@ -243,9 +242,9 @@ GEM
       simple_form (~> 3.1.0)
     hydra-file_characterization (0.3.3)
       activesupport (>= 3.0.0)
-    hydra-head (9.4.1)
-      hydra-access-controls (= 9.4.1)
-      hydra-core (= 9.4.1)
+    hydra-head (9.5.0)
+      hydra-access-controls (= 9.5.0)
+      hydra-core (= 9.5.0)
       rails (>= 3.2.6)
     hydra-role-management (0.2.2)
       blacklight
@@ -325,7 +324,7 @@ GEM
     mimemagic (0.3.0)
     mini_magick (4.3.6)
     mini_portile (0.6.2)
-    minitest (5.8.2)
+    minitest (5.8.3)
     mono_logger (1.1.0)
     multi_json (1.11.2)
     multi_xml (0.5.5)
@@ -334,7 +333,7 @@ GEM
       redis
     net-http-persistent (2.9.4)
     noid (0.8.0)
-    nokogiri (1.6.6.2)
+    nokogiri (1.6.6.3)
       mini_portile (~> 0.6.0)
     nom-xml (0.5.4)
       activesupport (>= 3.2.18)
@@ -357,6 +356,7 @@ GEM
     orm_adapter (0.5.0)
     parslet (1.7.1)
       blankslate (>= 2.0, <= 4.0)
+    posix-spawn (0.3.11)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -443,9 +443,11 @@ GEM
     rdf-xsd (1.99.0)
       rdf (~> 1.99)
     rdoc (4.2.0)
-    redis (3.2.1)
+    redis (3.2.2)
     redis-namespace (1.5.2)
       redis (~> 3.0, >= 3.0.4)
+    redlock (0.1.4)
+      redis (~> 3, >= 3.0.5)
     ref (2.0.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
@@ -459,6 +461,8 @@ GEM
       rake
       resque (~> 1.22)
     retriable (1.4.1)
+    riiif (0.2.0)
+      rails (> 3.2.0)
     rsolr (1.0.13)
       builder (>= 2.1.2)
     rspec-core (3.3.2)
@@ -541,8 +545,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
     sqlite3 (1.3.11)
     stomp (1.3.4)
-    sufia (6.3.0)
-      blacklight (~> 5.12)
+    sufia (6.4.0)
+      blacklight (~> 5.16)
       blacklight-gallery (~> 0.1)
       blacklight_advanced_search (>= 5.1.4, < 6.0)
       breadcrumbs_on_rails (~> 2.3.0)
@@ -557,21 +561,22 @@ GEM
       oauth
       rails_autolink (~> 1.1)
       railties (>= 4.2.0)
+      redlock (~> 0.1.2)
       sass-rails
       select2-rails (~> 3.5.9)
-      sufia-models (= 6.3.0)
+      sufia-models (= 6.4.0)
       tinymce-rails (~> 4.1)
       tinymce-rails-imageupload (~> 4.0.16.beta)
       yaml_db (~> 0.2)
-    sufia-models (6.3.0)
-      active-fedora (~> 9.1, >= 9.1.1)
+    sufia-models (6.4.0)
+      active-fedora (~> 9.4)
       active_fedora-noid (~> 1.0)
       activerecord-import (~> 0.5)
       activeresource (~> 4.0)
       acts_as_follower (>= 0.1.1, < 0.3)
       carrierwave (~> 0.9)
       google-api-client (~> 0.7)
-      hydra-collections (>= 5.0.2, < 6.0)
+      hydra-collections (>= 5.0.3, < 6.0)
       hydra-derivatives (~> 1.0)
       hydra-head (~> 9.0)
       legato (~> 0.3)
@@ -579,6 +584,7 @@ GEM
       mini_magick
       nest (~> 1.1)
       oauth2 (~> 0.9)
+      posix-spawn
       rails (~> 4.0)
       resque (~> 1.23)
       resque-pool (~> 0.3)
@@ -589,7 +595,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
-    tinymce-rails (4.2.7)
+    tinymce-rails (4.2.8)
       railties (>= 3.1.1)
     tinymce-rails-imageupload (4.0.16.beta)
       railties (>= 3.2, < 5)
@@ -630,15 +636,17 @@ DEPENDENCIES
   jettywrapper
   jquery-rails
   kaminari!
+  openseadragon
   rails (= 4.2.4)
   resque-ffmpeg!
+  riiif
   rsolr (~> 1.0.6)
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
   sqlite3
-  sufia (= 6.3.0)
+  sufia (= 6.4.0)
   therubyracer
   turbolinks
   uglifier (>= 1.3.0)

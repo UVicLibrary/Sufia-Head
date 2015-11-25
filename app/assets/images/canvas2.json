@@ -1,0 +1,31 @@
+{
+  "@context":"http://iiif.io/api/presentation/2/context.json",
+  "@id":"http://localhost:8000/canvas2.json",
+  "@type":"sc:Canvas",
+  "label":"p. 2",
+  "height":1716,
+  "width":1106,
+
+  "images": [
+    {
+      "@id":"http://www.example.org/iiif/book1/annotation/p0001-image",
+	  "@type":"oa:Annotation",
+	  "motivation":"sc:painting",
+	  "resource": {
+		"@id":"http://cassilda.library.uvic.ca/image-service/mk61rg94h/full/full/0/default.jpg",
+		"@type":"dctypes:Image",
+		"format":"image/jpeg",
+		"service": {
+		  "@context": "http://iiif.io/api/image/2/context.json",
+		  "@id":"http://cassilda.library.uvic.ca/image-service/mk61rg94h",
+		  "profile":"http://iiif.io/api/image/2/profiles/level2.json"
+		},
+		"height":1716,
+		"width":1106
+	  },
+	  "on":"http://localhost:8000/canvas2.json"
+    }
+  ]
+
+
+}

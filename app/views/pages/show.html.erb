@@ -5,16 +5,37 @@
   var addthis_config = {"data_track_addressbar":false};
   initialize_audio();
 <% end %>
-
+<style>
+        .navigator .highlight{
+            opacity:    0.4;
+            filter:     alpha(opacity=40);
+            border:     2px solid #900;
+            outline:    none;
+            background-color: #900;
+        }
+        .highlight{
+            filter:     alpha(opacity=70);
+            opacity:    0.7;
+            border:     2px solid #0A7EbE;
+            outline:    10px auto #0A7EbE;
+            background-color: transparent;
+        }
+        .highlight:hover, .highlight:focus{
+            filter:     alpha(opacity=40);
+            opacity:    0.4;
+            background-color: white;
+        }
+        </style>
 <%= render_breadcrumbs builder: Sufia::BootstrapBreadcrumbsBuilder %>
 <div class="container-fluid">
 		<% @page = Page.find(params[:id]) %>
-		
+		<% width =  ActiveFedora::Base.find(@page.id[0..-2], :cast=>true).width.first %>
+		<% height =  ActiveFedora::Base.find(@page.id[0..-2], :cast=>true).height.first %>
 		<div style="border: black solid 1px; width: 49%; float: left;">
 			<%= @page.full_text.content.gsub("\n", "<br>").html_safe %>
 		</div>	
-		<div id="page_image" style="width: 49%; float: left;">
-			<%= image_tag "/downloads/"+@page.id+"?file=pageContent", class: "img-responsive", alt: "page" %>
+		<div class="test" id="page_image" style="width: 49%; float: right; height: 800px">
+			
 		</div>
 		<br>
 		<%= link_to edit_page_path(@page) do %>
@@ -22,3 +43,41 @@
 		<% end %>
 		
 </div>
+<script type="text/javascript">
+
+                function setupViewer() {
+
+                    this.viewer = OpenSeadragon({
+                        id:                 "page_image",
+						prefixUrl:          "/assets/openseadragon/",
+						preserveViewport:   true,
+						visibilityRatio:    0.75,
+						minZoomLevel:       0.5,
+						defaultZoomLevel:   0.5,
+						sequenceMode: true,    
+						showReferenceStrip: true,
+                        tileSources:   [{
+						  "@context": "http://iiif.io/api/image/2/context.json",
+						  "@id": "http://cassilda.library.uvic.ca/image-service/<%= @page.id %>",
+						  "height": <%= height %>,
+						  "width": <%= width %>,
+						  "profile": [ "http://iiif.io/api/image/2/level2.json" ],
+						  "protocol": "http://iiif.io/api/image",
+						  "tiles": [{
+							"scaleFactors": [ 1, 2, 4, 8, 16 ],
+							"width": 256
+						  }]
+						}]
+                    });
+                    //this.viewer.addHandler('page', function() {
+							//Tooltips
+					//		setTimeout(bindtooltip, 2000);
+					//});
+                }
+           
+
+            // ----------
+            $(document).ready(function() {
+                setupViewer();
+            });
+            </script>
